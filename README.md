@@ -2,7 +2,7 @@
 
 用于小组内部的天气爬取，爬取的是[这个网站](https://datashareclub.com/weather)
 
-本脚本用uv管理虚拟环境
+本脚本用[uv](https://github.com/astral-sh/uv)管理虚拟环境
 
 ## How to use
 
