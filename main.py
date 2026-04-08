@@ -96,7 +96,7 @@ class InfoParser(Parser):
         return (AQI_index, sr_ss_index, sw_index)
 
 
-headers = {
+headers: dict[str, str] = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36 Edg/146.0.0.0",
 }
 
@@ -107,10 +107,10 @@ def grab_data():
         "https://datashareclub.com/weather/%E5%90%89%E6%9E%97/%E5%BB%B6%E8%BE%B9/101060308.html",
         headers=headers,
     )
-    html = req.text
+    html: str = req.text
     info_parser = InfoParser(html)
     with sqlite3.connect("weather_data.db") as conn:
-        c = conn.cursor()
+        c: sqlite3.Cursor = conn.cursor()
         c.execute("""CREATE TABLE IF NOT EXISTS weather_data
                   (ID INTEGER PRIMARY KEY AUTOINCREMENT,
                    date TEXT NOT NULL UNIQUE,
@@ -141,7 +141,7 @@ def grab_data():
 
 def export_data():
     with sqlite3.connect("weather_data.db") as conn:
-        c = conn.cursor()
+        c: sqlite3.Cursor = conn.cursor()
         curser = c.execute(
             """SELECT date,sunrise_time,sunset_time,AQI,total_shortwave FROM weather_data"""
         )
