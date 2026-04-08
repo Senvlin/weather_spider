@@ -143,7 +143,7 @@ def export_data():
     with sqlite3.connect("weather_data.db") as conn:
         c: sqlite3.Cursor = conn.cursor()
         curser = c.execute(
-            """SELECT date,sunrise_time,sunset_time,AQI,total_shortwave FROM weather_data"""
+            """SELECT date,sunrise_time,sunset_time,AQI,total_shortwave FROM weather_data ORDER BY date DESC"""
         )
         with open(
             f"{EXPORT_DIR}/weather_data.csv", "w", encoding="utf-8", newline=""
