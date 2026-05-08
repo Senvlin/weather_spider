@@ -1,6 +1,8 @@
-# 小组用
+# 课题用
 
-用于小组内部的天气爬取，爬取的是[这个网站](https://datashareclub.com/weather)
+用于[课题](https://github.com/cuixy09/smart-light-system)内部的天气爬取，爬取的是[这个网站](https://datashareclub.com/weather)
+
+课题中使用的版本阉割掉了csv导出
 
 本脚本用[uv](https://github.com/astral-sh/uv)管理虚拟环境
 
